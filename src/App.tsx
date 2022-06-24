@@ -1,12 +1,33 @@
 import React from 'react';
 import './App.css';
+import {Header} from "./component/Header/Header";
+import {Navbar} from "./component/Navbar/Navbar";
+import {Profile} from "./component/Profile/Profile";
+import {Dialogs} from "./component/Dialogs/Dialogs";
+import {BrowserRouter, Route} from "react-router-dom";
+
+/*import {Tehnologies} from "./components/Tehnologies";
+import {Header} from "./components/Header";*/
 
 function App() {
-  return (
-    <div className="App">
-     Hello, samurai! Let's go!
-    </div>
-  );
+
+    return (
+        <BrowserRouter>
+        <div className={'app-wrapper'}>
+            <Header/>
+            <Navbar/>
+            <div className={'app-wrapper-content'}>
+
+                    <Route path={'/dialogs'} component={Dialogs}/>
+                    <Route path={'/profile'} component={Profile}/>
+
+            {/*    <Dialogs/>*/}
+            </div>
+
+           {/*  <Profile/>*/}
+        </div>
+        </BrowserRouter>
+    )
 }
 
 export default App;
