@@ -4,7 +4,7 @@ import React from "react";
 
 type PostPropsType={
     message:string
-    like:string
+    likesCount:number
 }
 
 export const Post = (props:PostPropsType) => {
@@ -13,7 +13,7 @@ export const Post = (props:PostPropsType) => {
         <div className={s.item}>
             <img src={'https://shapka-youtube.ru/wp-content/uploads/2022/05/avatarka-kot-iz-tom-i-dzherri.jpg'}/>
             {props.message}
-            <div> {props.like}</div>
+            <div> like: {props.likesCount}</div>
         </div>
 
     );

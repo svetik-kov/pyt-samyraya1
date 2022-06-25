@@ -10,7 +10,7 @@ export const Profile = () => {
 
         <div className={s.content}>
             <ProfileInfo/>
-            <MyPosts/>
+            <MyPosts />
         </div>
 
     );

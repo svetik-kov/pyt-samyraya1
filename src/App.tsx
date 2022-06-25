@@ -6,8 +6,7 @@ import {Profile} from "./component/Profile/Profile";
 import {Dialogs} from "./component/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
 
-/*import {Tehnologies} from "./components/Tehnologies";
-import {Header} from "./components/Header";*/
+
 
 const App=()=> {
 
