@@ -2,13 +2,17 @@ import s from "./MyPosts.module.css";
 import React from "react";
 import {Post} from "../Post";
 
+
+
 export const MyPosts = () => {
     return (
-        <div>
-            MY posts
+        <div className={s.postBlock}>
+            <h3>MY posts</h3>
             <div>
-                <textarea></textarea>
-                <button> Add post</button>
+                <div ><textarea></textarea></div>
+                <div>
+                    <button> Add post</button>
+                </div>
             </div>
 
             <div className={s.posts}>
