@@ -10,7 +10,7 @@ import {Message} from "./Message/Message";
     message?: string
 }*/
 
-type DialogsDataPropsType = {
+/*type DialogsDataPropsType = {
     dialogsData: Array<DialogsDataType>
     messagesData:Array<MessageDataType>
 }
@@ -21,27 +21,12 @@ type DialogsDataType = {
 type MessageDataType = {
     id: number,
     name: string
-}
-
-/*const DialogItem = (props: DialogItemPropsType) => {
-    let path = '/dialogs/' + props.id;
-    return (
-        <div className={s.dialog + ' ' + s.active}>
-            <NavLink to={path}>{props.name}</NavLink>
-        </div>
-    )
 }*/
 
-/*const Message = (props: DialogItemPropsType) => {
-    return (
-        <div>
-            <div className={s.message}> {props.message}</div>
-        </div>
-    );
-};*/
 
 
-export const Dialogs = (props:DialogsDataPropsType) => {
+
+export const Dialogs = () => {
     let dialogsData = [
         {id: 1, name: 'Dimych'},
         {id: 2, name: 'Sveta'},
