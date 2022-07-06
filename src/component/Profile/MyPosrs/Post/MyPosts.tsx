@@ -1,15 +1,12 @@
 import s from "./MyPosts.module.css";
 import React from "react";
 import {Post} from "../Post";
+import {PostsDataType} from "../../../../App";
 
  export type  postsDataPropsType={
     postsData:Array<PostsDataType>
 }
- export type  PostsDataType={
-    id: number,
-    message: string,
-    likesCount: number
-}
+
 export const MyPosts = (props:postsDataPropsType) => {
 
    /* let postsData = [

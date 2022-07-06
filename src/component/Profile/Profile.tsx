@@ -3,15 +3,12 @@ import s from './Profile.module.css'
 import {Post} from "./MyPosrs/Post";
 import {MyPosts} from "./MyPosrs/Post/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
+import {PostsDataType} from "../../App";
 
 export type  ProfilePropsType={
     posts:Array<PostsDataType>
 }
-export type  PostsDataType={
-    id: number,
-    message: string,
-    likesCount: number
-}
+
 export const Profile = (props:ProfilePropsType) => {
 
    /* let postsData = [
