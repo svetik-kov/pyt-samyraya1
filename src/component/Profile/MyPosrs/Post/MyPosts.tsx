@@ -2,10 +2,10 @@ import s from "./MyPosts.module.css";
 import React from "react";
 import {Post} from "../Post";
 
-type  postsDataPropsType={
+ export type  postsDataPropsType={
     postsData:Array<PostsDataType>
 }
-type  PostsDataType={
+ export type  PostsDataType={
     id: number,
     message: string,
     likesCount: number

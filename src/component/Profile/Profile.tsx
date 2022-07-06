@@ -4,19 +4,26 @@ import {Post} from "./MyPosrs/Post";
 import {MyPosts} from "./MyPosrs/Post/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 
+export type  ProfilePropsType={
+    posts:Array<PostsDataType>
+}
+export type  PostsDataType={
+    id: number,
+    message: string,
+    likesCount: number
+}
+export const Profile = (props:ProfilePropsType) => {
 
-export const Profile = () => {
-
-    let postsData = [
+   /* let postsData = [
         {id: 1,message: 'Hi, how are you?',  likesCount: 14},
         {id: 2, message: 'It is my first post', likesCount: 30},
         {id: 3, message: 'It is my second post', likesCount: 103}
-    ]
+    ]*/
     return (
 
         <div className={s.content}>
             <ProfileInfo/>
-            <MyPosts postsData={postsData} />
+            <MyPosts postsData={props.posts} />
         </div>
 
     );
