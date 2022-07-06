@@ -41,7 +41,7 @@ const App=(props:AppPropsType)=> {
                {/* <Route path={'/dialogs'} component={Dialogs}/>
                     <Route path={'/profile'} component={Profile}/>*/}
 
-                <Route path={'/dialogs'} render={()=><Dialogs state={props.state.}/>}/>
+                <Route path={'/dialogs'} render={()=><Dialogs state={props.state}/>}/>
                 <Route path={'/profile'} render={()=><Profile state={props.state}/>}/>
 
             </div>
