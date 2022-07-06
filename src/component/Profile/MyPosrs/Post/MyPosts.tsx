@@ -2,21 +2,21 @@ import s from "./MyPosts.module.css";
 import React from "react";
 import {Post} from "../Post";
 
-/*type  postsDataPropsType={
+type  postsDataPropsType={
     postsData:Array<PostsDataType>
 }
 type  PostsDataType={
     id: number,
-    name: string,
+    message: string,
     likesCount: number
-}*/
-export const MyPosts = (/*props:postsDataPropsType*/) => {
+}
+export const MyPosts = (props:postsDataPropsType) => {
 
-    let postsData = [
+   /* let postsData = [
         {id: 1,message: 'Hi, how are you?',  likesCount: 14},
         {id: 2, message: 'It is my first post', likesCount: 30},
-    ]
-    let postsElements= postsData.map((p)=>   <Post message={p.message} likesCount={p.likesCount}/>);
+    ]*/
+    let postsElements= props.postsData.map((p)=>   <Post message={p.message} likesCount={p.likesCount}/>);
     return (
         <div className={s.postBlock}>
             <h3>MY posts</h3>
