@@ -5,33 +5,31 @@ import {Navbar} from "./component/Navbar/Navbar";
 import {Profile} from "./component/Profile/Profile";
 import {Dialogs} from "./component/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
+import {RootStateType} from "./redux/State";
 
 
 type AppPropsType = {
-  /*  dialogsData: Array<DialogsDataType>
-    messagesData:Array<MessageDataType>*/
-    posts:Array<PostsDataType>
+   /* dialogs: Array<DialogsDataType>
+    messages:Array<MessageDataType>
+    posts:Array<PostsDataType>*/
+    state:RootStateType
 }
-  export type  PostsDataType={
+ /* export type  PostsDataType={
     id: number,
     message: string,
     likesCount: number
 }
 
-/*type DialogsDataType = {
+export type DialogsDataType = {
     id: number,
     name: string
 }
-type MessageDataType = {
+export type MessageDataType = {
     id: number,
-    name: string
+    message: string
 }*/
 const App=(props:AppPropsType)=> {
-   /* let postsData = [
-        {id: 1,message: 'Hi, how are you?',  likesCount: 14},
-        {id: 2, message: 'It is my first post', likesCount: 30},
-        {id: 3, message: 'It is my second post', likesCount: 103}
-    ]*/
+
 
     return (
         <BrowserRouter>
@@ -43,8 +41,8 @@ const App=(props:AppPropsType)=> {
                {/* <Route path={'/dialogs'} component={Dialogs}/>
                     <Route path={'/profile'} component={Profile}/>*/}
 
-                <Route path={'/dialogs'} render={()=><Dialogs/>}/>
-                <Route path={'/profile'} render={()=><Profile posts={props.posts}/>}/>
+                <Route path={'/dialogs'} render={()=><Dialogs state={props.state.}/>}/>
+                <Route path={'/profile'} render={()=><Profile state={props.state}/>}/>
 
             </div>
 

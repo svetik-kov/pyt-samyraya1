@@ -1,10 +1,12 @@
 import s from "./MyPosts.module.css";
 import React from "react";
 import {Post} from "../Post";
-import {PostsDataType} from "../../../../App";
+/*import {PostsDataType} from "../../../../App";*/
+import {RootStateType} from "../../../../redux/State";
 
  export type  postsDataPropsType={
-    postsData:Array<PostsDataType>
+    /*postsData:Array<PostsDataType>*/
+     state:RootStateType
 }
 
 export const MyPosts = (props:postsDataPropsType) => {
@@ -13,7 +15,7 @@ export const MyPosts = (props:postsDataPropsType) => {
         {id: 1,message: 'Hi, how are you?',  likesCount: 14},
         {id: 2, message: 'It is my first post', likesCount: 30},
     ]*/
-    let postsElements= props.postsData.map((p)=>   <Post message={p.message} likesCount={p.likesCount}/>);
+    let postsElements= props.state.ProfilePage.posts.map((p)=>   < Post key={p.id} message={p.message} likesCount={p.likesCount}/>);
     return (
         <div className={s.postBlock}>
             <h3>MY posts</h3>

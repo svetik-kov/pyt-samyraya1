@@ -3,49 +3,38 @@ import s from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
+import {RootStateType} from "../../redux/State";
+/*/!*import {DialogsDataType, MessageDataType} from "../../App";*!/
+import {RootStateType} from "../../redux/State";*/
 
-/*type DialogItemPropsType = {
-    name?: string
-    id?: number
-    message?: string
-}*/
 
-/*type DialogsDataPropsType = {
-    dialogsData: Array<DialogsDataType>
-    messagesData:Array<MessageDataType>
+type DialogsPropsType = {
+    state:RootStateType
+
+    /*state:RootStateType*/
 }
-type DialogsDataType = {
-    id: number,
-    name: string
-}
-type MessageDataType = {
-    id: number,
-    name: string
-}*/
 
 
-
-
-export const Dialogs = () => {
-    let dialogsData = [
-        {id: 1, name: 'Dimych'},
-        {id: 2, name: 'Sveta'},
-        {id: 3, name: 'Maksim'},
-        {id: 4, name: 'Anna'},
-        {id: 5, name: 'Helena'},
-        {id: 6, name: 'Maksim'},
-    ]
-    let messagesData = [
-        {id: 1, message: 'Hello'},
-        {id: 2, message: 'How are you?'},
-        {id: 3, message: 'Hi!'},
-        {id: 4, message: 'Yo!'},
-        {id: 5, message: 'Yo!!!'},
-    ]
-    let dialogsElements= dialogsData.map((d)=> {
-        <DialogItem name={d.name} id={d.id}/>
+export const Dialogs = (props:DialogsPropsType) => {
+    /*   let dialogsData = [
+           {id: 1, name: 'Dimych'},
+           {id: 2, name: 'Sveta'},
+           {id: 3, name: 'Maksim'},
+           {id: 4, name: 'Anna'},
+           {id: 5, name: 'Helena'},
+           {id: 6, name: 'Maksim'},
+       ]
+       let messagesData = [
+           {id: 1, message: 'Hello'},
+           {id: 2, message: 'How are you?'},
+           {id: 3, message: 'Hi!'},
+           {id: 4, message: 'Yo!'},
+           {id: 5, message: 'Yo!!!'},
+       ]*/
+    let dialogsElements = props.state.ProfilePage.dialogs.map((d) => {
+        <DialogItem key={d.id} name={d.name} id={d.id}/>
     });
-    let messageElements=messagesData.map(m=><Message message={m.message}/>)
+    let messageElements = props.state.MessagePage.messages.map(m => <Message key={m.id} message={m.message}/>)
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
@@ -60,7 +49,7 @@ export const Dialogs = () => {
             </div>
             <div className={s.messages}>
                 {messageElements}
-               {/* <Message message={messagesData[0].message}/>
+                {/* <Message message={messagesData[0].message}/>
                 <Message message={'How are you?'}/>
                 <Message message={'Hi!'}/>
                 <Message message={'Yo!'}/>

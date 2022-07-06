@@ -3,10 +3,11 @@ import s from './Profile.module.css'
 import {Post} from "./MyPosrs/Post";
 import {MyPosts} from "./MyPosrs/Post/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-import {PostsDataType} from "../../App";
+/*import {PostsDataType} from "../../App";*/
+import {RootStateType} from "../../redux/State";
 
 export type  ProfilePropsType={
-    posts:Array<PostsDataType>
+    state:RootStateType
 }
 
 export const Profile = (props:ProfilePropsType) => {
@@ -20,7 +21,7 @@ export const Profile = (props:ProfilePropsType) => {
 
         <div className={s.content}>
             <ProfileInfo/>
-            <MyPosts postsData={props.posts} />
+            <MyPosts state={props.state} />
         </div>
 
     );
