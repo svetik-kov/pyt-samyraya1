@@ -58,8 +58,8 @@ let state: RootStateType = {
 
 export let addPosts=(postMessage:string)=>{
     debugger
-    let newPost={
-        id: 4,
+    let newPost: PostType={
+        id: new Date().getTime(),
         message: postMessage,
         likesCount: 103
     }

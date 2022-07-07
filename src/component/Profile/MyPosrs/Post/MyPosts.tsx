@@ -13,19 +13,22 @@ import {RootStateType} from "../../../../redux/State";
 export const MyPosts = (props:postsDataPropsType) => {
      debugger
 
-   /* let postsData = [
-        {id: 1,message: 'Hi, how are you?',  likesCount: 14},
-        {id: 2, message: 'It is my first post', likesCount: 30},
-    ]*/
+
     let postsElements= props.state.ProfilePage.posts.map((p)=>   < Post key={p.id} message={p.message} likesCount={p.likesCount}/>);
 
-    let newPostElement=useRef<HTMLTextAreaElement>(null);
+   /*  let newPostElement=useRef<HTMLTextAreaElement>(null);
     let addPost=()=>{
        if (newPostElement.current!==null){
           props.addPosts(newPostElement.current.value)
        }
-    }
+    }*/
 
+    let newPostElement=React.createRef<HTMLTextAreaElement>();
+    let addPost=()=>{
+        if (newPostElement.current){
+            props.addPosts(newPostElement.current.value)
+        }
+        }
 
 
 
