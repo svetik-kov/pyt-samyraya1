@@ -7,9 +7,11 @@ import {RootStateType} from "../../../../redux/State";
  export type  postsDataPropsType={
     /*postsData:Array<PostsDataType>*/
      state:RootStateType
+     addPosts:(postMessage:string)=>void
 }
 
 export const MyPosts = (props:postsDataPropsType) => {
+     debugger
 
    /* let postsData = [
         {id: 1,message: 'Hi, how are you?',  likesCount: 14},
@@ -20,9 +22,10 @@ export const MyPosts = (props:postsDataPropsType) => {
     let newPostElement=useRef<HTMLTextAreaElement>(null);
     let addPost=()=>{
        if (newPostElement.current!==null){
-           alert(newPostElement.current.value)
+          props.addPosts(newPostElement.current.value)
        }
     }
+
 
 
 

@@ -27,6 +27,7 @@ type SidebarType={
      Sidebar:SidebarType
 }
 
+
 let state: RootStateType = {
     ProfilePage: {
         posts: [
@@ -53,5 +54,15 @@ let state: RootStateType = {
         ]
     },
     Sidebar:{}
+}
+
+export let addPosts=(postMessage:string)=>{
+    debugger
+    let newPost={
+        id: 4,
+        message: postMessage,
+        likesCount: 103
+    }
+    state.ProfilePage.posts.push(newPost)
 }
 export default state

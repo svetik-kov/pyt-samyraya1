@@ -4,10 +4,11 @@ import {Post} from "./MyPosrs/Post";
 import {MyPosts} from "./MyPosrs/Post/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 /*import {PostsDataType} from "../../App";*/
-import {RootStateType} from "../../redux/State";
+import { RootStateType} from "../../redux/State";
 
 export type  ProfilePropsType={
     state:RootStateType
+    addPosts:(postMessage:string)=>void
 }
 
 export const Profile = (props:ProfilePropsType) => {
@@ -21,7 +22,7 @@ export const Profile = (props:ProfilePropsType) => {
 
         <div className={s.content}>
             <ProfileInfo/>
-            <MyPosts state={props.state} />
+            <MyPosts state={props.state} addPosts={props.addPosts}/>
         </div>
 
     );

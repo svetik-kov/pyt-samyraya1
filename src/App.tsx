@@ -5,7 +5,7 @@ import {Navbar} from "./component/Navbar/Navbar";
 import {Profile} from "./component/Profile/Profile";
 import {Dialogs} from "./component/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
-import {RootStateType} from "./redux/State";
+import { RootStateType} from "./redux/State";
 
 
 type AppPropsType = {
@@ -13,6 +13,7 @@ type AppPropsType = {
     messages:Array<MessageDataType>
     posts:Array<PostsDataType>*/
     state:RootStateType
+    addPosts:(postMessage:string)=>void
 }
  /* export type  PostsDataType={
     id: number,
@@ -42,7 +43,7 @@ const App=(props:AppPropsType)=> {
                     <Route path={'/profile'} component={Profile}/>*/}
 
                 <Route path={'/dialogs'} render={()=><Dialogs state={props.state}/>}/>
-                <Route path={'/profile'} render={()=><Profile state={props.state}/>}/>
+                <Route path={'/profile'} render={()=><Profile state={props.state} addPosts={props.addPosts}/>}/>
 
             </div>
 
