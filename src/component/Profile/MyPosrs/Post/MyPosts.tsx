@@ -27,6 +27,7 @@ export const MyPosts = (props:postsDataPropsType) => {
     let addPost=()=>{
         if (newPostElement.current){
             props.addPosts(newPostElement.current.value)
+            newPostElement.current.value=''
         }
         }
 
