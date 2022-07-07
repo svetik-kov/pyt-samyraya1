@@ -9,6 +9,8 @@ import { RootStateType} from "../../redux/State";
 export type  ProfilePropsType={
     state:RootStateType
     addPosts:(postMessage:string)=>void
+    updateNewPost:(newText:string)=>void
+    message:string
 }
 
 export const Profile = (props:ProfilePropsType) => {
@@ -22,7 +24,7 @@ export const Profile = (props:ProfilePropsType) => {
 
         <div className={s.content}>
             <ProfileInfo/>
-            <MyPosts state={props.state} addPosts={props.addPosts}/>
+            <MyPosts state={props.state} addPosts={props.addPosts} updateNewPost={props.updateNewPost} message={props.message}/>
         </div>
 
     );
