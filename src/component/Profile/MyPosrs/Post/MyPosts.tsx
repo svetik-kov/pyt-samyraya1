@@ -2,14 +2,15 @@ import s from "./MyPosts.module.css";
 import React, {ChangeEvent, useRef} from "react";
 import {Post} from "../Post";
 /*import {PostsDataType} from "../../../../App";*/
-import {RootStateType} from "../../../../redux/State";
+import {ActionTypes, RootStateType} from "../../../../redux/State";
 import {message} from "antd";
 
 export type  postsDataPropsType = {
     /*postsData:Array<PostsDataType>*/
     state: RootStateType
-    addPosts: (postMessage: string) => void
-    updateNewPost: (newText: string) => void
+    dispatch:(action:ActionTypes)=>void
+   /* addPosts: (postMessage: string) => void
+    updateNewPost: (newText: string) => void*/
     message: string
 }
 
@@ -29,16 +30,15 @@ export const MyPosts = (props: postsDataPropsType) => {
 
     /* let newPostElement=React.createRef<HTMLTextAreaElement>();*/
     let addPost = () => {
-        props.addPosts(props.message)
-        props.updateNewPost('')
+        props.dispatch({type:'ADD-POSTS',postMessage:props.message})
+        props.dispatch({type:'UPDATE-NEW-POSTS',newText:''})
 
 
     }
 
     const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        /*const text = newPostElement.current.value;*/
-        props.updateNewPost(e.currentTarget.value)
-
+               /* props.updateNewPost(e.currentTarget.value)*/
+        props.dispatch({type:'UPDATE-NEW-POSTS',newText:e.currentTarget.value})
     }
 
     return (

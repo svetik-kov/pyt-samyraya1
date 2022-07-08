@@ -4,12 +4,11 @@ import {Post} from "./MyPosrs/Post";
 import {MyPosts} from "./MyPosrs/Post/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 /*import {PostsDataType} from "../../App";*/
-import { RootStateType} from "../../redux/State";
+import {ActionTypes, RootStateType} from "../../redux/State";
 
 export type  ProfilePropsType={
     state:RootStateType
-    addPosts:(postMessage:string)=>void
-    updateNewPost:(newText:string)=>void
+    dispatch:(action:ActionTypes)=>void
     message:string
 }
 
@@ -24,7 +23,7 @@ export const Profile = (props:ProfilePropsType) => {
 
         <div className={s.content}>
             <ProfileInfo/>
-            <MyPosts state={props.state} addPosts={props.addPosts} updateNewPost={props.updateNewPost} message={props.message}/>
+            <MyPosts state={props.state} dispatch={props.dispatch}  message={props.message}/>
         </div>
 
     );

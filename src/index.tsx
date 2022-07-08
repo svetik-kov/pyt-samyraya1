@@ -5,7 +5,9 @@ import React from "react";
 
  const rerenderEntireTree = () => {
     ReactDOM.render(
-        <App state={store.getState()} addPosts={store.addPosts.bind(store)} updateNewPost={store.updateNewPost.bind(store)}/>,
+        <App state={store.getState()} dispatch={store.dispatch.bind(store)}
+
+     />,
         document.getElementById('root')
     );
 }
