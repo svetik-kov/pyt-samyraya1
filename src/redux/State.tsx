@@ -1,5 +1,3 @@
-
-
 type MessageType = {
     id: number
     message: string
@@ -16,25 +14,80 @@ type PostType = {
 type ProfilePageType = {
     posts: Array<PostType>
     dialogs: Array<DialogType>
-    newText:string
+    newText: string
 
 }
 type MessagePageType = {
     messages: Array<MessageType>
 }
-type SidebarType={
-
-}
- export type RootStateType = {
+type SidebarType = {}
+export type RootStateType = {
     ProfilePage: ProfilePageType
     MessagePage: MessagePageType
-     Sidebar:SidebarType
+    Sidebar: SidebarType
 }
 
-let rerenderEntireTree=()=>{
+/*let callSubscriber=()=>{
     console.log('hello my friend')
+}*/
+
+
+export let store = {
+    _state: {
+        ProfilePage: {
+            posts: [
+                {id: 1, message: 'Hi, how are you?', likesCount: 14},
+                {id: 2, message: 'It is my first post', likesCount: 30},
+                {id: 3, message: 'It is my second post', likesCount: 103}
+            ],
+
+            dialogs: [
+                {id: 1, name: 'Dimych'},
+                {id: 2, name: 'Sveta'},
+                {id: 3, name: 'Maksim'},
+                {id: 4, name: 'Anna'},
+                {id: 5, name: 'Helena'},
+                {id: 6, name: 'Maksim'},
+            ],
+            newText: '',
+        },
+        MessagePage: {
+            messages: [
+                {id: 1, message: 'Hello'},
+                {id: 2, message: 'How are you?'},
+                {id: 3, message: 'Hi!'},
+                {id: 4, message: 'Yo!'},
+                {id: 5, message: 'Yo!!!'},
+            ]
+        },
+        Sidebar: {}
+    },
+    getState() {
+        return this._state
+    },
+    callSubscriber() {
+        console.log('hello my friend')
+    },
+    addPosts(postMessage: string) {
+
+        const newPost: PostType = {
+            id: new Date().getTime(),
+            message: postMessage,
+            likesCount: 103
+        }
+        this._state.ProfilePage.posts.push(newPost)
+        this.callSubscriber()
+    },
+    updateNewPost(newText: string) {
+
+        this._state.ProfilePage.newText = newText
+        this.callSubscriber()
+    },
+    subscribe(callBack: () => void) {
+        this.callSubscriber = callBack
+    }
 }
-let state: RootStateType = {
+/*let state: RootStateType = {
     ProfilePage: {
         posts: [
             {id: 1, message: 'Hi, how are you?', likesCount: 14},
@@ -62,9 +115,9 @@ let state: RootStateType = {
         ]
     },
     Sidebar:{}
-}
+}*/
 
-export const addPosts=(postMessage:string)=>{
+/*export const addPosts=(postMessage:string)=>{
 
     const newPost: PostType={
         id: new Date().getTime(),
@@ -74,7 +127,6 @@ export const addPosts=(postMessage:string)=>{
     state.ProfilePage.posts.push(newPost)
     rerenderEntireTree()
 }
-
 export const updateNewPost=(newText:string)=>{
 
     state.ProfilePage.newText=newText
@@ -82,5 +134,7 @@ export const updateNewPost=(newText:string)=>{
 }
 export const subscribe=(callBack:()=>void)=>{
     rerenderEntireTree=callBack
-}
-export default state
+}*/
+
+
+export default store

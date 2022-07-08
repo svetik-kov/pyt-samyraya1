@@ -5,7 +5,7 @@ import {Navbar} from "./component/Navbar/Navbar";
 import {Profile} from "./component/Profile/Profile";
 import {Dialogs} from "./component/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
-import {RootStateType, updateNewPost} from "./redux/State";
+import {RootStateType} from "./redux/State";
 
 
 type AppPropsType = {
