@@ -31,8 +31,15 @@ export type RootStateType = {
     console.log('hello my friend')
 }*/
 
-
-export let store = {
+export type storeType={
+    _state:RootStateType
+    callSubscriber: ()=>void
+    addPosts: (newMessage: string)=>void
+    updateNewPost :  (newText: string)=>void
+    subscribe : (callBack: () => void)=>void
+    getState:()=>RootStateType
+}
+export let store:storeType = {
     _state: {
         ProfilePage: {
             posts: [
